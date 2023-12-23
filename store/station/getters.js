@@ -1,5 +1,9 @@
 const getters = {
 
+    UPDATE_KEY: (state) => {
+        return state.token;
+    },
+
     STATION_DATA: (state) => (id) => {
         // Фильтруем данные по станции
         let data = state.data

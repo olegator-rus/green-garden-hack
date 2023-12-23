@@ -84,14 +84,14 @@ export default {
                     sortable: false,
                 },
                 {
-                    width: '10%',
+                    width: '15%',
                     text: 'Начало',
                     value: 'startDate',
                     align: 'start',
                     sortable: false,
                 },
                 {
-                    width: '10%',
+                    width: '15%',
                     text: 'Окончание',
                     value: 'endDate',
                     align: 'start',

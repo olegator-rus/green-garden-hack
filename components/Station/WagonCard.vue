@@ -7,15 +7,28 @@
             width="500"
         >
             <template v-slot:activator="{ on, attrs }">
-                <v-chip
-                    class="black--text"
+                <span
                     v-bind="attrs"
                     v-on="on"
-                    :color="color"
-                    :disabled="disabled"
+                    class="d-inline-flex align-center justify-start"
                 >
-                    {{ data.owner }}
-                </v-chip>
+                    <v-chip
+                        label
+                        color="#D5D5D9"
+                        class="ma-1 bad-chip"
+                        :style="opacity"
+                        x-small
+                    >
+                        {{ data.position }}
+                    </v-chip>
+                    <IconTrain
+                        :type="data.type"
+                        :fully="data.cargo != 'Empty'"
+                        :color="color"
+                        height="30"
+                        :style="opacity"
+                    />
+                </span>
             </template>
 
             <v-card>
@@ -100,11 +113,16 @@ export default {
     },
 
     computed: {
+
+        opacity: function (){
+            return [this.disabled ? {'opacity': 0.2} : {'opacity': 1}];
+        },
+
         color: function(){
             let alt = this.OWNERS_BY_ALIAS(this.data.owner);
             // console.log(this.data.owner, alt.hex);
             return this.data.inventoryNumber == this.SEARCH_NUMBER
-                ? 'primary' : alt.hex;
+                ? '#0B2C62' : alt.hex;
         },
 
         disabled: function(){

@@ -1,4 +1,5 @@
 const state = () => ({
+    token: '0',
 
     list: [],
 

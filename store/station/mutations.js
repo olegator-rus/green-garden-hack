@@ -2,6 +2,30 @@ const mutations = {
 
     updateData(state, data){
         state.data = data;
+        this.commit("station/updateTokenKey");
+    },
+
+    updateStationWagon(state, data){
+        const parkId = data.parkId;
+        const stationId = data.stationId;
+        const oldIndex = data.oldIndex;
+        const newIndex = data.newIndex;
+
+        let per = state.data.find((item) =>
+            item.park.id == parkId && item.station.id == stationId
+        );
+
+        let obj = per.wagons;
+        let key1 = oldIndex;
+        let key2 = newIndex;
+
+        [obj[key1], obj[key2]] = [obj[key2], obj[key1]];
+        this.commit("station/updateTokenKey");
+    },
+
+    updateTokenKey(state){
+        console.log('Update of roken');
+        state.token = Math.random() * (1000 - 1) + 1;
     },
 
     updateList(state, data){
