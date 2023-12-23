@@ -10,8 +10,8 @@ export default {
             lang: 'ru-RU',
             translate: 'no',
         },
-        titleTemplate: 'ЕВРАЗ АМР',
-        title: 'ЕВРАЗ АМР',
+        titleTemplate: 'ЕВРАЗ | АРМ диспетчера ЖД-станции',
+        title: 'ЕВРАЗ | АРМ диспетчера ЖД-станции',
         meta: [
             { charset: 'utf-8' },
         ],
@@ -137,7 +137,7 @@ export default {
             dark: true,
             themes: {
                 dark: {
-                    primary: '#7595ff',//colors.blue.darken2,
+                    primary: '#f07b1a',//colors.blue.darken2,
                     accent: colors.grey.darken3,
                     secondary: '#F3F3F3',//colors.amber.darken3,
                     info: colors.teal.lighten1,

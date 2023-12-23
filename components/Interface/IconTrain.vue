@@ -1,5 +1,6 @@
 <template>
     <span>
+        {{ idle}}
         <span v-if="type == 'Tank' && fully">
             <svg width="60" height="35" viewBox="0 0 60 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8.05884 31.0157L5.30054 27.3954H24.9535L22.7124 31.0157H8.05884Z" fill="#E8E6ED" stroke="#B1ADC2"/>
@@ -8,10 +9,10 @@
                 <circle cx="40.7212" cy="31.318" r="3" fill="#B1ADC2" stroke="#B1ADC2"/>
                 <circle cx="19.2236" cy="31.5" r="3" fill="#B1ADC2" stroke="#B1ADC2"/>
                 <circle cx="48.9146" cy="31.318" r="3" fill="#B1ADC2" stroke="#B1ADC2"/>
-                <rect x="18.2014" y="31.0159" width="2.04443" height="0.968384" :fill="color"/>
-                <rect x="47.8923" y="30.8339" width="2.04443" height="0.968384" :fill="color"/>
-                <rect x="10.0083" y="31.0159" width="2.04443" height="0.968384" :fill="color"/>
-                <rect x="39.6992" y="30.8339" width="2.04443" height="0.968384" :fill="color"/>
+                <rect x="18.2014" y="31.0159" width="2.04443" height="0.968384" fill="#FFFFFF"/>
+                <rect x="47.8923" y="30.8339" width="2.04443" height="0.968384" fill="#FFFFFF"/>
+                <rect x="10.0083" y="31.0159" width="2.04443" height="0.968384" fill="#FFFFFF"/>
+                <rect x="39.6992" y="30.8339" width="2.04443" height="0.968384" fill="#FFFFFF"/>
                 <rect x="2.90942" y="25.1626" width="54.1947" height="3.18713" fill="#E8E6ED" stroke="#B1ADC2"/>
                 <rect x="23.6926" y="4.02466" width="12.5083" height="2.50012" fill="#E8E6ED" stroke="#B1ADC2"/>
                 <rect x="13.1204" y="4.83508" width="3.57275" height="2.1897" fill="#B1ADC2"/>
@@ -30,10 +31,10 @@
                 <circle cx="40.7144" cy="31.318" r="3" fill="#B1ADC2" stroke="#B1ADC2"/>
                 <circle cx="19.2168" cy="31.5" r="3" fill="#B1ADC2" stroke="#B1ADC2"/>
                 <circle cx="48.9077" cy="31.318" r="3" fill="#B1ADC2" stroke="#B1ADC2"/>
-                <rect x="18.1946" y="31.0159" width="2.04443" height="0.968384" :fill="color"/>
-                <rect x="47.8855" y="30.8339" width="2.04443" height="0.968384" :fill="color"/>
-                <rect x="10.0015" y="31.0159" width="2.04443" height="0.968384" :fill="color"/>
-                <rect x="39.6924" y="30.8339" width="2.04443" height="0.968384" :fill="color"/>
+                <rect x="18.1946" y="31.0159" width="2.04443" height="0.968384" fill="#FFFFFF"/>
+                <rect x="47.8855" y="30.8339" width="2.04443" height="0.968384" fill="#FFFFFF"/>
+                <rect x="10.0015" y="31.0159" width="2.04443" height="0.968384" fill="#FFFFFF"/>
+                <rect x="39.6924" y="30.8339" width="2.04443" height="0.968384" fill="#FFFFFF"/>
                 <rect x="2.90259" y="25.1626" width="54.1947" height="3.18713" fill="#E8E6ED" stroke="#B1ADC2"/>
                 <rect x="23.6858" y="4.02466" width="12.5083" height="2.50012" fill="#E8E6ED" stroke="#B1ADC2"/>
                 <rect x="13.1135" y="4.83508" width="3.57275" height="2.1897" fill="#B1ADC2"/>
@@ -51,17 +52,17 @@
                 <circle cx="40.7214" cy="31.3984" r="3" fill="#B1ADC2" stroke="#B1ADC2"/>
                 <circle cx="19.2239" cy="31.5804" r="3" fill="#B1ADC2" stroke="#B1ADC2"/>
                 <circle cx="48.9143" cy="31.3984" r="3" fill="#B1ADC2" stroke="#B1ADC2"/>
-                <rect x="18.2014" y="31.0963" width="2.04443" height="0.968384" :fill="color"/>
-                <rect x="47.8923" y="30.9143" width="2.04443" height="0.968384" :fill="color"/>
-                <rect x="10.0081" y="31.0963" width="2.04443" height="0.968384" :fill="color"/>
-                <rect x="39.699" y="30.9143" width="2.04443" height="0.968384" :fill="color"/>
+                <rect x="18.2014" y="31.0963" width="2.04443" height="0.968384" fill="#FFFFFF"/>
+                <rect x="47.8923" y="30.9143" width="2.04443" height="0.968384" fill="#FFFFFF"/>
+                <rect x="10.0081" y="31.0963" width="2.04443" height="0.968384" fill="#FFFFFF"/>
+                <rect x="39.699" y="30.9143" width="2.04443" height="0.968384" fill="#FFFFFF"/>
                 <rect x="2.90942" y="25.243" width="54.1947" height="3.18713" fill="#E8E6ED" stroke="#B1ADC2"/>
                 <circle cx="15.0305" cy="24.5804" r="3" fill="#B1ADC2" stroke="#B1ADC2"/>
-                <rect x="14.0081" y="24.0963" width="2.04443" height="0.968384" :fill="color"/>
+                <rect x="14.0081" y="24.0963" width="2.04443" height="0.968384" fill="#FFFFFF"/>
                 <circle cx="29.7214" cy="24.3984" r="3" fill="#B1ADC2" stroke="#B1ADC2"/>
-                <rect x="28.699" y="23.9143" width="2.04443" height="0.968384" :fill="color"/>
+                <rect x="28.699" y="23.9143" width="2.04443" height="0.968384" fill="#FFFFFF"/>
                 <circle cx="44.9143" cy="24.3984" r="3" fill="#B1ADC2" stroke="#B1ADC2"/>
-                <rect x="43.8923" y="23.9143" width="2.04443" height="0.968384" :fill="color"/>
+                <rect x="43.8923" y="23.9143" width="2.04443" height="0.968384" fill="#FFFFFF"/>
                 <rect width="30" height="2" transform="translate(15.1262 17.5804)" fill="#B1ADC2"/>
             </svg>
         </span>
@@ -75,17 +76,17 @@
                 <circle cx="40.7214" cy="31.3564" r="3" fill="#B1ADC2" stroke="#B1ADC2"/>
                 <circle cx="19.2239" cy="31.5385" r="3" fill="#B1ADC2" stroke="#B1ADC2"/>
                 <circle cx="48.9143" cy="31.3564" r="3" fill="#B1ADC2" stroke="#B1ADC2"/>
-                <rect x="18.2014" y="31.0543" width="2.04443" height="0.968384" :fill="color"/>
-                <rect x="47.8923" y="30.8723" width="2.04443" height="0.968384" :fill="color"/>
-                <rect x="10.0081" y="31.0543" width="2.04443" height="0.968384" :fill="color"/>
-                <rect x="39.699" y="30.8723" width="2.04443" height="0.968384" :fill="color"/>
+                <rect x="18.2014" y="31.0543" width="2.04443" height="0.968384" fill="#FFFFFF"/>
+                <rect x="47.8923" y="30.8723" width="2.04443" height="0.968384" fill="#FFFFFF"/>
+                <rect x="10.0081" y="31.0543" width="2.04443" height="0.968384" fill="#FFFFFF"/>
+                <rect x="39.699" y="30.8723" width="2.04443" height="0.968384" fill="#FFFFFF"/>
                 <rect x="2.90942" y="25.201" width="54.1947" height="3.18713" fill="#E8E6ED" stroke="#B1ADC2"/>
                 <circle cx="15.0305" cy="24.5385" r="3" fill="#B1ADC2" stroke="#B1ADC2"/>
-                <rect x="14.0081" y="24.0543" width="2.04443" height="0.968384" :fill="color"/>
+                <rect x="14.0081" y="24.0543" width="2.04443" height="0.968384" fill="#FFFFFF"/>
                 <circle cx="29.7214" cy="24.3564" r="3" fill="#B1ADC2" stroke="#B1ADC2"/>
-                <rect x="28.699" y="23.8723" width="2.04443" height="0.968384" :fill="color"/>
+                <rect x="28.699" y="23.8723" width="2.04443" height="0.968384" fill="#FFFFFF"/>
                 <circle cx="44.9143" cy="24.3564" r="3" fill="#B1ADC2" stroke="#B1ADC2"/>
-                <rect x="43.8923" y="23.8723" width="2.04443" height="0.968384" :fill="color"/>
+                <rect x="43.8923" y="23.8723" width="2.04443" height="0.968384" fill="#FFFFFF"/>
             </svg>
         </span>
 
@@ -98,10 +99,10 @@
                 <circle cx="39.124" cy="32.3984" r="3" fill="#B1ADC2" stroke="#B1ADC2"/>
                 <circle cx="17.6262" cy="32.5804" r="3" fill="#B1ADC2" stroke="#B1ADC2"/>
                 <circle cx="47.3171" cy="32.3984" r="3" fill="#B1ADC2" stroke="#B1ADC2"/>
-                <rect x="16.604" y="32.0963" width="2.04443" height="0.968384" :fill="color"/>
-                <rect x="46.2949" y="31.9143" width="2.04443" height="0.968384" :fill="color"/>
-                <rect x="8.41064" y="32.0963" width="2.04443" height="0.968384" :fill="color"/>
-                <rect x="38.1016" y="31.9143" width="2.04443" height="0.968384" :fill="color"/>
+                <rect x="16.604" y="32.0963" width="2.04443" height="0.968384" fill="#FFFFFF"/>
+                <rect x="46.2949" y="31.9143" width="2.04443" height="0.968384" fill="#FFFFFF"/>
+                <rect x="8.41064" y="32.0963" width="2.04443" height="0.968384" fill="#FFFFFF"/>
+                <rect x="38.1016" y="31.9143" width="2.04443" height="0.968384" fill="#FFFFFF"/>
                 <rect x="1.31201" y="26.243" width="54.1947" height="3.18713" fill="#E8E6ED" stroke="#B1ADC2"/>
                 <rect x="9.89648" y="11.7739" width="14.6898" height="1.11673" transform="rotate(100.267 9.89648 11.7739)" fill="#B1ADC2"/>
                 <path d="M6.79785 9.21655V5.72504H51.8382V9.21655H50.6744V12.1261H48.4631V23.9973C45.3983 24.5792 37.3601 25.743 29.7253 25.743C22.0905 25.743 13.354 24.5792 9.94009 23.9973V12.1261H7.7288V9.21655H6.79785Z" :fill="color" stroke="#B1ADC2"/>
@@ -119,10 +120,10 @@
                 <circle cx="39.1172" cy="27.3984" r="3" fill="#B1ADC2" stroke="#B1ADC2"/>
                 <circle cx="17.6194" cy="27.5804" r="3" fill="#B1ADC2" stroke="#B1ADC2"/>
                 <circle cx="47.3103" cy="27.3984" r="3" fill="#B1ADC2" stroke="#B1ADC2"/>
-                <rect x="16.5972" y="27.0963" width="2.04443" height="0.968384" :fill="color"/>
-                <rect x="46.2881" y="26.9143" width="2.04443" height="0.968384" :fill="color"/>
-                <rect x="8.40381" y="27.0963" width="2.04443" height="0.968384" :fill="color"/>
-                <rect x="38.0947" y="26.9143" width="2.04443" height="0.968384" :fill="color"/>
+                <rect x="16.5972" y="27.0963" width="2.04443" height="0.968384" fill="#FFFFFF"/>
+                <rect x="46.2881" y="26.9143" width="2.04443" height="0.968384" fill="#FFFFFF"/>
+                <rect x="8.40381" y="27.0963" width="2.04443" height="0.968384" fill="#FFFFFF"/>
+                <rect x="38.0947" y="26.9143" width="2.04443" height="0.968384" fill="#FFFFFF"/>
                 <rect x="1.30518" y="21.243" width="54.1947" height="3.18713" fill="#E8E6ED" stroke="#B1ADC2"/>
                 <rect x="9.88965" y="6.77386" width="14.6898" height="1.11673" transform="rotate(100.267 9.88965 6.77386)" fill="#B1ADC2"/>
                 <path d="M6.79102 4.21655V0.725037H51.8314V4.21655H50.6675V7.12614H48.4562V18.9973C45.3915 19.5792 37.3532 20.743 29.7185 20.743C22.0837 20.743 13.3472 19.5792 9.93326 18.9973V7.12614H7.72197V4.21655H6.79102Z" :fill="color" stroke="#B1ADC2"/>
@@ -140,10 +141,10 @@
                 <circle cx="40.7144" cy="32.3984" r="3" fill="#B1ADC2" stroke="#B1ADC2"/>
                 <circle cx="19.2168" cy="32.5804" r="3" fill="#B1ADC2" stroke="#B1ADC2"/>
                 <circle cx="48.9077" cy="32.3984" r="3" fill="#B1ADC2" stroke="#B1ADC2"/>
-                <rect x="18.1946" y="32.0963" width="2.04443" height="0.968384" :fill="color"/>
-                <rect x="47.8855" y="31.9143" width="2.04443" height="0.968384" :fill="color"/>
-                <rect x="10.0015" y="32.0963" width="2.04443" height="0.968384" :fill="color"/>
-                <rect x="39.6924" y="31.9143" width="2.04443" height="0.968384" :fill="color"/>
+                <rect x="18.1946" y="32.0963" width="2.04443" height="0.968384" fill="#FFFFFF"/>
+                <rect x="47.8855" y="31.9143" width="2.04443" height="0.968384" fill="#FFFFFF"/>
+                <rect x="10.0015" y="32.0963" width="2.04443" height="0.968384" fill="#FFFFFF"/>
+                <rect x="39.6924" y="31.9143" width="2.04443" height="0.968384" fill="#FFFFFF"/>
                 <rect x="2.90259" y="26.243" width="54.1947" height="3.18713" fill="#E8E6ED" stroke="#B1ADC2"/>
                 <rect width="34" height="1" transform="translate(17.3052 18.5804)" fill="#B1ADC2"/>
                 <rect width="34" height="2" transform="translate(17.3052 21.5804)" fill="#B1ADC2"/>
@@ -159,10 +160,10 @@
                 <circle cx="40.7373" cy="31.3148" r="3" fill="#B1ADC2" stroke="#B1ADC2"/>
                 <circle cx="19.2397" cy="31.4968" r="3" fill="#B1ADC2" stroke="#B1ADC2"/>
                 <circle cx="48.9307" cy="31.3148" r="3" fill="#B1ADC2" stroke="#B1ADC2"/>
-                <rect x="18.2175" y="31.0127" width="2.04443" height="0.968384" :fill="color"/>
-                <rect x="47.9084" y="30.8307" width="2.04443" height="0.968384" :fill="color"/>
-                <rect x="10.0244" y="31.0127" width="2.04443" height="0.968384" :fill="color"/>
-                <rect x="39.7153" y="30.8307" width="2.04443" height="0.968384" :fill="color"/>
+                <rect x="18.2175" y="31.0127" width="2.04443" height="0.968384" fill="#FFFFFF"/>
+                <rect x="47.9084" y="30.8307" width="2.04443" height="0.968384" fill="#FFFFFF"/>
+                <rect x="10.0244" y="31.0127" width="2.04443" height="0.968384" fill="#FFFFFF"/>
+                <rect x="39.7153" y="30.8307" width="2.04443" height="0.968384" fill="#FFFFFF"/>
                 <rect x="2.92554" y="25.1594" width="54.1947" height="3.18713" fill="#E8E6ED" stroke="#B1ADC2"/>
             </svg>
         </span>
@@ -176,6 +177,7 @@ export default {
         type: String,
         fully: Boolean,
         color: String,
+        idle: Boolean,
     },
 }
 </script>

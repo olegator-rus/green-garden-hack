@@ -1,6 +1,7 @@
 <template>
     <div>
         <BoardFilters />
+
         <v-row v-for="park in STATION_DATA(CURRENT_STATION?.id)" :key="park.id">
             <v-col>
                 <ParkCard :data="park" />
@@ -12,6 +13,7 @@
 
 <script>
 import { mapGetters, mapActions, mapMutations } from "vuex";
+import draggable from "vuedraggable";
 
 export default {
     props: {

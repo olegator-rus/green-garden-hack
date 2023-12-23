@@ -19,15 +19,18 @@
                         :style="opacity"
                         x-small
                     >
-                        {{ data.position }}
+                        {{ index }}
                     </v-chip>
                     <IconTrain
+                        class="d-block"
                         :type="data.type"
                         :fully="data.cargo != 'Empty'"
                         :color="color"
                         height="30"
+                        :idle="data.idleDaysLength > 5"
                         :style="opacity"
                     />
+                    <!-- <p class="d-block">{{ data.inventoryNumber }}</p> -->
                 </span>
             </template>
 
@@ -96,8 +99,10 @@ import { mapGetters, mapActions, mapMutations } from "vuex";
 
 export default {
     props: {
+        index: Number,
         data: Object,
     },
+
     data(){
         return {
             dialog: false,
