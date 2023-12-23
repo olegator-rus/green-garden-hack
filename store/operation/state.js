@@ -1,5 +1,7 @@
 const state = () => ({
 
+    machinists: [],
+
     typesNorms: [],
 
     types: [],

@@ -1,5 +1,9 @@
 const getters = {
 
+    MACHINISTS_LIST: (state) => {
+        return state.machinists;
+    },
+
     OPERATION_LIST: (state) => {
         // Группировать по станциям
         return state.list;

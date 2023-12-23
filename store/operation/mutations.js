@@ -1,5 +1,9 @@
 const mutations = {
 
+    updateMachinists(state, data){
+        state.machinists = data;
+    },
+
     updateList(state, data){
         state.list = data;
     },

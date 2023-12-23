@@ -28,6 +28,19 @@ const actions = {
         } catch(err) {}
     },
 
+    async machinists({ commit }) {
+        try {
+            const res = await this.$axios({
+                url: `user/machinists`,
+                method: 'get',
+                errors: true,
+            });
+
+            const result = res.data.data;
+            commit('updateMachinists', result);
+        } catch(err) {}
+    },
+
     async list({ commit }) {
         try {
             const res = await this.$axios({

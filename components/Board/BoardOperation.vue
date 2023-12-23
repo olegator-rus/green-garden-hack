@@ -27,80 +27,96 @@
                         <p>Идентификатор операции - {{ form.id }}</p>
                     </v-col>
                 </v-row>
+
                 <v-row>
-                    <v-col cols="3">
-                        <v-menu
-                            v-model="ui.start_date"
-                            :close-on-content-click="false"
-                            :nudge-right="40"
-                            transition="scale-transition"
-                            offset-y
-                            min-width="auto"
-                        >
-                            <template v-slot:activator="{ on, attrs }">
+                    <v-col cols="6">
+                        <v-row>
+                            <v-col cols="6">
+                                <v-menu
+                                    v-model="ui.start_date"
+                                    :close-on-content-click="false"
+                                    :nudge-right="40"
+                                    transition="scale-transition"
+                                    offset-y
+                                    min-width="auto"
+                                >
+                                    <template v-slot:activator="{ on, attrs }">
+                                        <v-text-field
+                                            v-model="form.start_date"
+                                            label="Дата начала операции"
+                                            disabled
+                                            readonly
+                                            clearable
+                                            locale="ru-RU"
+                                            v-bind="attrs"
+                                            v-on="on"
+                                        ></v-text-field>
+                                    </template>
+                                    <v-date-picker
+                                        v-model="form.start_date"
+                                        @input="ui.start_date = false"
+                                    ></v-date-picker>
+                                </v-menu>
+                            </v-col>
+                            <v-col cols="6">
+                                <v-menu
+                                    v-model="ui.end_date"
+                                    :close-on-content-click="false"
+                                    :nudge-right="40"
+                                    transition="scale-transition"
+                                    offset-y
+                                    min-width="auto"
+                                >
+                                    <template v-slot:activator="{ on, attrs }">
+                                        <v-text-field
+                                            v-model="form.end_date"
+                                            label="Дата конца операции"
+                                            readonly
+                                            clearable
+                                            locale="ru-RU"
+                                            v-bind="attrs"
+                                            v-on="on"
+                                        ></v-text-field>
+                                    </template>
+                                    <v-date-picker
+                                        v-model="form.end_date"
+                                        @input="ui.end_date = false"
+                                    ></v-date-picker>
+                                </v-menu>
+                            </v-col>
+                        </v-row>
+                        <v-row>
+                            <v-col cols="6">
                                 <v-text-field
-                                    v-model="form.start_date"
-                                    label="Дата начала операции"
+                                    type="time"
+                                    v-model="form.start_time"
                                     disabled
-                                    readonly
+                                    label="Время начала операции"
                                     clearable
-                                    locale="ru-RU"
-                                    v-bind="attrs"
-                                    v-on="on"
+                                    required
                                 ></v-text-field>
-                            </template>
-                            <v-date-picker
-                                v-model="form.start_date"
-                                @input="ui.start_date = false"
-                            ></v-date-picker>
-                        </v-menu>
-                    </v-col>
-                    <v-col cols="3">
-                        <v-menu
-                            v-model="ui.end_date"
-                            :close-on-content-click="false"
-                            :nudge-right="40"
-                            transition="scale-transition"
-                            offset-y
-                            min-width="auto"
-                        >
-                            <template v-slot:activator="{ on, attrs }">
+                            </v-col>
+                            <v-col cols="6">
                                 <v-text-field
-                                    v-model="form.end_date"
-                                    label="Дата конца операции"
-                                    readonly
+                                    type="time"
+                                    v-model="form.end_time"
+                                    label="Время конца операции"
                                     clearable
-                                    locale="ru-RU"
-                                    v-bind="attrs"
-                                    v-on="on"
+                                    required
                                 ></v-text-field>
-                            </template>
-                            <v-date-picker
-                                v-model="form.end_date"
-                                @input="ui.end_date = false"
-                            ></v-date-picker>
-                        </v-menu>
+                            </v-col>
+
+                        </v-row>
                     </v-col>
-                </v-row>
-                <v-row>
-                    <v-col cols="3">
-                        <v-text-field
-                            type="time"
-                            v-model="form.start_time"
-                            disabled
-                            label="Время начала операции"
-                            clearable
-                            required
-                        ></v-text-field>
-                    </v-col>
-                    <v-col cols="3">
-                        <v-text-field
-                            type="time"
-                            v-model="form.end_time"
-                            label="Время конца операции"
-                            clearable
-                            required
-                        ></v-text-field>
+                    <v-col cols="6">
+                        <v-textarea
+                            v-model="form.comment"
+                            label="Комментарии"
+                            rows="4"
+                            hide-details="true"
+                            no-resize
+                            outlined
+                        ></v-textarea>
                     </v-col>
                 </v-row>
                 <v-row>
@@ -213,6 +229,31 @@
                         ></v-select>
                     </v-col>
                 </v-row>
+
+                <v-row>
+                    <v-col cols="6">
+                        <v-select
+                            v-model="form.machinist"
+                            :items="MACHINISTS_LIST"
+                            label="Машинист (ФИО)"
+                            persistent-hint
+                            item-text="name"
+                            item-value="id"
+                            hide-details="true"
+                        ></v-select>
+                    </v-col>
+                    <v-col cols="6">
+                        <v-select
+                            disabled
+                            label="Локомотив"
+                            persistent-hint
+                            item-text="name"
+                            item-value="id"
+                            hide-details="true"
+                        ></v-select>
+                    </v-col>
+                </v-row>
+
             </v-card-text>
             <v-divider></v-divider>
             <v-card-actions>
@@ -235,6 +276,7 @@ import { mapGetters, mapActions, mapMutations } from "vuex";
 export default {
     computed: {
         ...mapGetters({
+            MACHINISTS_LIST: "operation/MACHINISTS_LIST",
             PARKS_BY_STATION: "station/PARKS_BY_STATION",
             WAYS_BY_STATION: "station/WAYS_BY_STATION",
             STATION_LIST: "station/STATION_LIST",
@@ -253,6 +295,8 @@ export default {
         return {
             dialog: false,
             form: {
+                machinist: null,
+                comment: null,
                 id: null,
                 start_date: null,
                 end_date: null,

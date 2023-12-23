@@ -23,6 +23,7 @@ export default {
     methods: {
 
         ...mapActions({
+            machinists: "operation/machinists",
             wagonTypeList: "wagon/typeList",
             operationTypesNorms: "operation/typesNorms",
             operationTypes: "operation/types",
@@ -45,6 +46,7 @@ export default {
         this.stationId = localStorage.getItem("station-id");
         this.setCurrentStation(this.stationId);
         await this.ownerLegend();
+        await this.machinists();
         await this.wagonTypeList();
         await this.operationTypesNorms();
         await this.operationTypes();
