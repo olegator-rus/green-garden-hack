@@ -34,6 +34,12 @@
 
                 <v-row>
                     <v-col>
+                        <BoardFixDays />
+                    </v-col>
+                </v-row>
+
+                <v-row>
+                    <v-col>
                         <v-switch
                             v-model="numberMode"
                             :label="`Отображать номера вагонов`"
