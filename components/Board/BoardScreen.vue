@@ -1,7 +1,7 @@
 <template>
     <div>
         <BoardFilters />
-        <v-row v-for="park in STATION_DATA(1)" :key="park.id">
+        <v-row v-for="park in STATION_DATA(CURRENT_STATION?.id)" :key="park.id">
             <v-col>
                 <ParkCard :data="park" />
             </v-col>
@@ -19,9 +19,15 @@ export default {
     },
 
     computed: mapGetters({
+        CURRENT_STATION: "station/CURRENT_STATION",
         UPDATE_KEY: "station/UPDATE_KEY",
         STATION_DATA: "station/STATION_DATA",
     }),
 
+    data () {
+        return {
+            stationId: null,
+        };
+    },
 }
 </script>

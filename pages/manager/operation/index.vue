@@ -13,7 +13,7 @@
 import { mapGetters, mapActions, mapMutations } from "vuex";
 
 export default {
-    middleware: ['auth'],
+    middleware: ['auth', 'station'],
     layout: 'user',
 
     computed: mapGetters({
@@ -33,6 +33,7 @@ export default {
             stationData: "station/data",
         }),
         ...mapMutations({
+            setCurrentStation: "station/setCurrentStation",
             activatePreloader: 'board/activatePreloader',
             deactivatePreloader: 'board/deactivatePreloader'
         }),
@@ -40,6 +41,8 @@ export default {
 
     async fetch() {
         await this.activatePreloader();
+        this.stationId = localStorage.getItem("station-id");
+        this.setCurrentStation(this.stationId);
         await this.ownerLegend();
         await this.wagonTypeList();
         await this.operationTypesNorms();

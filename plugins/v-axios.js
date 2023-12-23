@@ -2,9 +2,9 @@
 // ошибки выводятся с помощью vue-toastification
 export default ({ $axios, $auth, store, redirect }) => {
     $axios.onRequest(config => {
-        let projectId = localStorage.getItem("project-id");
-        if(!projectId) return;
-        config.headers.common['project-id'] = projectId;
+        let stationId = localStorage.getItem("station-id");
+        if(!stationId) return;
+        config.headers.common['station-id'] = stationId;
     });
 
     // Добавляем перехват ответов

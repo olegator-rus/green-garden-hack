@@ -1,27 +1,29 @@
 <template>
-    <v-row justify="center" align="center">
-        <v-col cols="12" sm="12" md="12">
-            <div v-if="!PRELOADER_STATUS">
-                <BoardScreen />
-            </div>
-            <v-skeleton-loader v-else type="table"></v-skeleton-loader>
-        </v-col>
-    </v-row>
+    <v-container>
+        <v-row justify="center" align="center">
+            <v-col cols="12" sm="6" md="6">
+                <div>
+                    <StationSelector />
+                </div>
+            </v-col>
+        </v-row>
+    </v-container>
 </template>
 
 <script>
 import { mapGetters, mapActions, mapMutations } from "vuex";
 
 export default {
-    middleware: ['auth', 'station'],
-    layout: 'user',
+
+    layout ({ $auth }) {
+        return $auth.loggedIn ? 'user' : 'guest';
+    },
 
     computed: mapGetters({
-        PRELOADER_STATUS: "board/PRELOADER_STATUS",
+        PRELOADER_STATUS: "station/PRELOADER_STATUS",
     }),
 
     methods: {
-
         ...mapActions({
             wagonTypeList: "wagon/typeList",
             operationTypesNorms: "operation/typesNorms",
@@ -34,16 +36,13 @@ export default {
             stationData: "station/data",
         }),
         ...mapMutations({
-            setCurrentStation: "station/setCurrentStation",
-            activatePreloader: 'board/activatePreloader',
-            deactivatePreloader: 'board/deactivatePreloader'
+            activatePreloader: 'station/activatePreloader',
+            deactivatePreloader: 'station/deactivatePreloader'
         }),
     },
 
     async fetch() {
         await this.activatePreloader();
-        this.stationId = localStorage.getItem("station-id");
-        this.setCurrentStation(this.stationId);
         await this.ownerLegend();
         await this.wagonTypeList();
         await this.operationTypesNorms();

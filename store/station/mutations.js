@@ -1,5 +1,9 @@
 const mutations = {
 
+    setCurrentStation(state, id){
+        state.stationId = id;
+    },
+
     updateData(state, data){
         state.data = data;
         this.commit("station/updateTokenKey");
@@ -24,7 +28,6 @@ const mutations = {
     },
 
     updateTokenKey(state){
-        console.log('Update of roken');
         state.token = Math.random() * (1000 - 1) + 1;
     },
 

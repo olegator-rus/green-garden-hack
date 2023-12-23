@@ -1,7 +1,16 @@
 const getters = {
 
     OPERATION_LIST: (state) => {
+        // Группировать по станциям
         return state.list;
+    },
+
+    OPERATION_TYPES: (state) => {
+        return state.types;
+    },
+
+    OPERATION_REASONS: (state) => {
+        return state.reasonsList;
     },
 
 

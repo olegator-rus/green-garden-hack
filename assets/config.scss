@@ -1,3 +1,8 @@
+input[type="time"]::-webkit-calendar-picker-indicator {
+    background: none;
+    display: none;
+}
+
 // Подчеркивание текста
 .text-underline {
     display: inline-block;

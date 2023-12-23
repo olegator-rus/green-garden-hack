@@ -1,6 +1,8 @@
 const state = () => ({
     token: '0',
 
+    stationId: null,
+
     list: [],
 
     data: [],
