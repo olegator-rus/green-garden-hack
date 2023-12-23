@@ -87,7 +87,7 @@ export default {
             return [
                 {
                     "icon": "mdi-chart-bar-stacked",
-                    "title": "Домашний борд",
+                    "title": "Управление станцией",
                     "to": "/manager/board"
                 },
                 {
