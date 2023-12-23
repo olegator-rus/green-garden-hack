@@ -8,6 +8,10 @@ const getters = {
         return state.list;
     },
 
+    SHOW_MODE: (state) => {
+        return state.showNumber;
+    },
+
     STATION_LIST_COUNT: (state) => {
         return state.list.length;
     },

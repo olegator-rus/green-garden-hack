@@ -4,6 +4,10 @@ const mutations = {
         state.stationId = id;
     },
 
+    changeShowMode(state){
+        state.showNumber = !state.showNumber;
+    },
+
     updateData(state, data){
         state.data = data;
         this.commit("station/updateTokenKey");

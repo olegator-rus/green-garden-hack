@@ -8,6 +8,8 @@
                 -->
                 <span>Парк «{{ data[0].park?.name}}»</span>
             </v-toolbar-title>
+            <v-spacer></v-spacer>
+            <small><img class="mr-2" :src="require('../../assets/label.png')" height="8" /> Простой более 5 часов ({{ waitWagons }})</small>
         </v-toolbar>
 
         <v-divider></v-divider>
@@ -33,7 +35,6 @@
                             <WagonCard
                                 :index="index+1"
                                 :data="wagon"
-                                class="py-2"
                             />
                         </draggable>
                     </template>
@@ -42,6 +43,21 @@
                 <template v-slot:item.limits="{ item }">
                     <b>{{ item.wagons.length }} / {{ item.maxCarriagesCount }}</b>
                 </template>
+
+                <template v-slot:item.train_right="{ item }">
+                    <div v-for="train in item.locomotives.filter((item) => item.direction == 'LEFT')" :key="train.inventoryNumber">
+                        <small>{{ train.inventoryNumber }}</small>
+                        <img :src="require('../../assets/train.svg')" height="30" />
+                    </div>
+                </template>
+
+                <template v-slot:item.train_left="{ item }">
+                    <div v-for="train in item.locomotives.filter((item) => item.direction == 'RIGHT')" :key="train.inventoryNumber">
+                        <small>{{ train.inventoryNumber }}</small>
+                        <img :src="require('../../assets/train.svg')" height="28" />
+                    </div>
+                </template>
+
 
             </v-data-table>
         </v-card-text>
@@ -62,6 +78,20 @@ export default {
     },
     mounted(){
         this.dnd = JSON.parse(JSON.stringify(this.data));
+    },
+    computed: {
+        waitWagons(){
+            let result = 0;
+            this.dnd.forEach(item => {
+                item.wagons.forEach(wagon => {
+                    if(wagon.idleDaysLength > 5 ){
+                        result++;
+                    }
+                });
+            });
+
+            return result;
+        }
     },
     methods: {
         ...mapMutations({
@@ -95,12 +125,25 @@ export default {
                     value: 'way.name',
                 },
                 {
-                    width: '85%',
+                    width: '4%',
+                    text: 'Лок.',
+                    value: 'train_right',
+                    align: 'center',
+                    sortable: false,
+                },
+                {
+                    width: '77%',
                     value: 'wagons',
                     align: 'start',
                     sortable: false,
                 },
-
+                {
+                    width: '4%',
+                    text: 'Лок.',
+                    value: 'train_left',
+                    align: 'center',
+                    sortable: false,
+                },
                 {
                     width: '10%',
                     text: 'Вместимость',

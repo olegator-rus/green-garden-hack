@@ -31,6 +31,15 @@
                         <BoardWagonSelector />
                     </v-col>
                 </v-row>
+
+                <v-row>
+                    <v-col>
+                        <v-switch
+                            v-model="numberMode"
+                            :label="`Отображать номера вагонов`"
+                        ></v-switch>
+                    </v-col>
+                </v-row>
             </v-card-text>
             <v-divider></v-divider>
             <v-card-actions>
@@ -51,18 +60,25 @@
 import { mapGetters, mapActions, mapMutations } from "vuex";
 
 export default {
-    computed: {
-        ...mapGetters({
-
-        }),
-    },
     methods: {
+        ...mapMutations({
+            changeShowMode: "station/changeShowMode"
+        }),
 
         // Метод закрытия модального окна
         async close(){
             // Закрываем модальное окно
             this.dialog = false;
         }
+    },
+    computed: {
+        ...mapGetters({
+            SHOW_MODE: "station/SHOW_MODE"
+        }),
+        numberMode: {
+            get() { return this.SHOW_MODE; },
+            set() { this.changeShowMode(); },
+        },
     },
 
     data () {

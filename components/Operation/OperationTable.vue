@@ -12,6 +12,10 @@
                 :headers="headers"
                 :items="OPERATION_LIST"
             >
+                <template v-slot:item.id="{ item }">
+                    {{ item.id }}
+                    <v-icon :color="item.operationStatus ? 'success' : 'warning'">mdi-circle-medium</v-icon>
+                </template>
                 <template v-slot:item.locomotive="{ item }">
                     {{ item.locomotivesList[0].inventoryNumber }}
                 </template>
@@ -40,7 +44,6 @@ export default {
         return {
             selected: [],
             headers: [
-
                 {
                     width: '10%',
                     text: '№ операции',
@@ -63,21 +66,21 @@ export default {
                     value: 'departureStation.title',
                 },
                 {
-                    width: '15%',
+                    width: '14%',
                     text: 'Куда',
                     value: 'destinationStation.title',
                     align: 'start',
                     sortable: false,
                 },
                 {
-                    width: '10%',
+                    width: '12%',
                     text: '№ локомотива',
                     value: 'locomotive',
                     align: 'start',
                     sortable: false,
                 },
                 {
-                    width: '5%',
+                    width: '4%',
                     text: 'Длительность',
                     value: 'normalMinutesLength',
                     align: 'start',

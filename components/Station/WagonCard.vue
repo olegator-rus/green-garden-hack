@@ -10,7 +10,7 @@
                 <span
                     v-bind="attrs"
                     v-on="on"
-                    class="d-inline-flex align-center justify-start"
+                    class="d-inline-flex align-center justify-start pt-3 pb-2"
                 >
                     <v-chip
                         label
@@ -21,16 +21,17 @@
                     >
                         {{ index }}
                     </v-chip>
+
                     <IconTrain
                         class="d-block"
                         :type="data.type"
+                        :numberCode="data.inventoryNumber"
                         :fully="data.cargo != 'Empty'"
                         :color="color"
                         height="30"
                         :idle="data.idleDaysLength > 5"
                         :style="opacity"
                     />
-                    <!-- <p class="d-block">{{ data.inventoryNumber }}</p> -->
                 </span>
             </template>
 
@@ -118,7 +119,6 @@ export default {
     },
 
     computed: {
-
         opacity: function (){
             return [this.disabled ? {'opacity': 0.2} : {'opacity': 1}];
         },
