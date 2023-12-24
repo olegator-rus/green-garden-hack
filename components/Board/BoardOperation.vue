@@ -268,7 +268,7 @@
                 <v-btn
                     color="primary"
                     nuxt
-                    @click="close()"
+                    @click="$toast.success('Операция на станции зарегистрирована успешно!'); close()"
                 >
                     Сохранить
                 </v-btn>

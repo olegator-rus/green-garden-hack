@@ -71,12 +71,12 @@ export default {
             return [
                 {
                     "icon": "mdi-chart-bar-stacked",
-                    "title": "Управление станцией",
+                    "title": "АРМ дежурного",
                     "to": "/manager/board"
                 },
                 {
                     "icon": "mdi-train",
-                    "title": "Управление станцией",
+                    "title": "Журнал операций",
                     "to": "/manager/operation"
                 },
                 {

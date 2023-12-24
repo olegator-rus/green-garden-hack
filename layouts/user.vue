@@ -87,12 +87,12 @@ export default {
             return [
                 {
                     "icon": "mdi-chart-bar-stacked",
-                    "title": "Управление станцией",
+                    "title": "АРМ дежурного",
                     "to": "/manager/board"
                 },
                 {
                     "icon": "mdi-train",
-                    "title": "Операции на станции",
+                    "title": "Журнал операций",
                     "to": "/manager/operation"
                 },
                 {

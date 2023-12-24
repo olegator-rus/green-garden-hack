@@ -8,6 +8,10 @@ const mutations = {
         state.showNumber = !state.showNumber;
     },
 
+    setShowMode(state, value){
+        state.showNumber = value;
+    },
+
     updateData(state, data){
         state.data = data;
         this.commit("station/updateTokenKey");

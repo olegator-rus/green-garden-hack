@@ -11,6 +11,7 @@
             <v-data-table
                 :headers="headers"
                 :items="OPERATION_LIST"
+                @click:row="dialog=true"
             >
                 <template v-slot:item.id="{ item }">
                     {{ item.id }}
@@ -42,6 +43,7 @@ export default {
     },
     data () {
         return {
+            dialog: [],
             selected: [],
             headers: [
                 {

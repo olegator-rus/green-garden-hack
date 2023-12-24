@@ -13,6 +13,7 @@
             <v-data-table
                 :headers="headers"
                 :items="ROUTES_LIST"
+                @click:row="open()"
             >
                 <template v-slot:item.wagon="{ item }">
                     <WagonCard
@@ -56,6 +57,42 @@
                 </template>
             </v-data-table>
         </v-card-text>
+
+
+        <v-dialog
+            v-model="dialog"
+            overlay-color="black"
+            overlay-opacity="0.7"
+            width="500"
+        >
+            <v-card>
+                <v-toolbar color="primary" dark>
+                    Подтвердить отправление состава?
+                </v-toolbar>
+                <v-divider class="mb-6"></v-divider>
+                <v-card-text>
+                    <p class="pb-0">Вы уверены, что хотите отправить вагон выбранную локацию?</p>
+                </v-card-text>
+                <v-divider></v-divider>
+                <v-card-actions>
+                    <v-spacer />
+                    <v-btn
+                        color="light"
+                        nuxt
+                        @click="close()"
+                    >
+                        Отменить
+                    </v-btn>
+                    <v-btn
+                        color="primary"
+                        nuxt
+                        @click="$toast.success('Вагон успешно зарегистрирован на отправку!'); close()"
+                    >
+                        Подтвердить отправку
+                    </v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
     </v-card>
 </template>
 
@@ -73,14 +110,20 @@ export default {
     methods: {
         ...mapMutations({
             changeShowMode: "station/changeShowMode",
-        })
+        }),
+        open(){
+            this.dialog = true;
+        },
+        close(){
+            this.dialog = false;
+        }
     },
     mounted(){
         this.changeShowMode();
     },
     data () {
         return {
-            optPathKey: -1,
+            dialog: false,
             selected: [],
             headers: [
                 {

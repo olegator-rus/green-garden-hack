@@ -35,6 +35,7 @@ export default {
             stationData: "station/data",
         }),
         ...mapMutations({
+            setShowMode: "station/setShowMode",
             setCurrentStation: "station/setCurrentStation",
             activatePreloader: 'board/activatePreloader',
             deactivatePreloader: 'board/deactivatePreloader'
@@ -45,6 +46,7 @@ export default {
         await this.activatePreloader();
         this.stationId = localStorage.getItem("station-id");
         this.setCurrentStation(this.stationId);
+        this.setShowMode(false);
         await this.ownerLegend();
         await this.machinists();
         await this.wagonTypeList();
