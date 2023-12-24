@@ -4,6 +4,13 @@ const getters = {
         return state.machinists;
     },
 
+    ROUTES_LIST: (state, getters, rootState, rootGetters) => {
+        console.log(state.arrivalStationId, rootGetters['station/CURRENT_STATION'].id);
+        return state.routesData
+            .filter((item) => item.arrivalStation?.id == state.arrivalStationId)
+            .filter((item) => item.departureStation?.id == rootGetters['station/CURRENT_STATION'].id);
+    },
+
     OPERATION_LIST: (state) => {
         // Группировать по станциям
         return state.list;

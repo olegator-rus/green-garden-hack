@@ -46,6 +46,15 @@ const getters = {
         });
     },
 
+    WAGONS_BY_STATION: (state) => (id) => {
+        let data = state.data
+            .filter((item) => item.station?.id == id);
+
+        return data.map(function(station) {
+            return station['wagons'];
+        }).flat(1);
+    },
+
     WAYS_BY_STATION: (state) => (id) => {
         let data = state.data
             .filter((item) => item.station?.id == id);

@@ -13,6 +13,7 @@
                     class="d-inline-flex align-center justify-start pt-3 pb-2"
                 >
                     <v-chip
+                        v-if="index"
                         label
                         color="#D5D5D9"
                         class="ma-1 bad-chip"

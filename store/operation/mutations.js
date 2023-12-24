@@ -1,7 +1,15 @@
 const mutations = {
 
+    updateArrival(state, id){
+        state.arrivalStationId = id;
+    },
+
     updateMachinists(state, data){
         state.machinists = data;
+    },
+
+    updateRouteData(state, data){
+        state.routesData = data;
     },
 
     updateList(state, data){

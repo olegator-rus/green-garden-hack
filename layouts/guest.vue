@@ -79,6 +79,11 @@ export default {
                     "title": "Управление станцией",
                     "to": "/manager/operation"
                 },
+                {
+                    "icon": "mdi-navigation-variant",
+                    "title": "Оптимизация пути",
+                    "to": "/manager/optimisation"
+                },
             ];
         }
     },

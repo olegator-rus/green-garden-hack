@@ -61,3 +61,12 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     background-color: #e9e6ee;
     border: 1px solid rgb(213, 213, 217);
 }
+
+.v-stepper__step__step{
+    background-color: #f07b1a !important;
+    border-color: #f07b1a !important;
+}
+
+.theme--dark.v-stepper .v-stepper__label{
+    color: #fff !important;
+}

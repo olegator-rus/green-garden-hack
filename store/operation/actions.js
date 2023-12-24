@@ -14,6 +14,20 @@ const actions = {
         } catch(err) {}
     },
 
+    async routeData({ commit }) {
+        try {
+            const res = await this.$axios({
+                baseURL: this.$config.externalBaseUrl,
+                url: `routeData`,
+                method: 'get',
+                errors: true,
+            });
+
+            const result = res.data;
+            commit('updateRouteData', result);
+        } catch(err) {}
+    },
+
     async types({ commit }) {
         try {
             const res = await this.$axios({

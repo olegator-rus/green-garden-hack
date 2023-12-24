@@ -265,6 +265,13 @@
                 >
                     Отменить
                 </v-btn>
+                <v-btn
+                    color="primary"
+                    nuxt
+                    @click="close()"
+                >
+                    Сохранить
+                </v-btn>
             </v-card-actions>
         </v-card>
     </v-dialog>
