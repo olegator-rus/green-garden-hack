@@ -100,6 +100,16 @@ export default {
                     "title": "Оптимизация пути",
                     "to": "/manager/optimisation"
                 },
+                {
+                    "icon": "mdi-format-list-group",
+                    "title": "Справочник станций",
+                    "to": "/manager/lists/station"
+                },
+                {
+                    "icon": "mdi-domain",
+                    "title": "Перевозчики",
+                    "to": "/manager/lists/companies"
+                },
             ];
         }
     },

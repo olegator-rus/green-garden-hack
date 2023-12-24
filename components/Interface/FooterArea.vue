@@ -6,7 +6,7 @@
                 <!-- Метка разработчика -->
                 <div>
                     <small>
-                        {{ new Date().getFullYear() }} © АО «ЕВРАЗ»
+                        {{ new Date().getFullYear() }} © ООО «ЕВРАЗ»
                     </small>
                 </div>
 

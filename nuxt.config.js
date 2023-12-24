@@ -57,6 +57,7 @@ export default {
         { path: '~/components/Authenticate', extensions: ['vue'] },
         { path: '~/components/Station', extensions: ['vue'] },
         { path: '~/components/Board', extensions: ['vue'] },
+        { path: '~/components/Lists', extensions: ['vue'] },
     ],
 
     // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
