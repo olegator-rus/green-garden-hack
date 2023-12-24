@@ -40,14 +40,14 @@ export default {
                     width: '55%',
                     text: 'Название перевозчика',
                     align: 'start',
-                    sortable: false,
+                    sortable: true,
                     value: 'name',
                 },
                 {
                     width: '15%',
                     text: 'Код перевозчика',
                     align: 'start',
-                    sortable: false,
+                    sortable: true,
                     value: 'alias',
                 },
                 {

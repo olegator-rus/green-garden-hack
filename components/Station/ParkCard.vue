@@ -118,10 +118,10 @@ export default {
             selected: [],
             headers: [
                 {
-                    width: '5%',
+                    width: '7%',
                     text: 'Путь',
                     align: 'start',
-                    sortable: false,
+                    sortable: true,
                     value: 'way.name',
                 },
                 {
@@ -132,7 +132,7 @@ export default {
                     sortable: false,
                 },
                 {
-                    width: '77%',
+                    width: '76%',
                     value: 'wagons',
                     align: 'start',
                     sortable: false,

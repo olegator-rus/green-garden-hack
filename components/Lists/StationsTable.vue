@@ -40,7 +40,7 @@ export default {
                     width: '20%',
                     text: 'ID станции',
                     align: 'start',
-                    sortable: false,
+                    sortable: true,
                     value: 'id',
                 },
                 {
